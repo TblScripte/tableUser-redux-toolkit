@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import { Select } from '@mui/material'
+import { Info } from '@mui/icons-material'
 export default function App() {
   const dispatch = useDispatch();
   let [dialog,setDialog] = useState(false)
@@ -139,14 +140,15 @@ export default function App() {
         className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition"
         onClick={() => dispatch(del(info1.id))}
       >
-        Удалить
+        delete
       </button>
       <button
         className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition"
         onClick={() => Edit(info1)}
       >
-        Редактировать
+        Edit
       </button>
+      <button className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition" onClick={() => dispatch(info(false))}>Close</button>
       <label className="flex items-center space-x-2 cursor-pointer">
         <input
           type="checkbox"
@@ -154,7 +156,7 @@ export default function App() {
           onChange={() => dispatch(cheked1(info1.id))}
           className="w-5 h-5 text-blue-500"
         />
-        <span className="text-white dark:text-gray-300">Завершено</span>
+        <span className="text-white dark:text-gray-300">Ckeked</span>
       </label>
     </div>
   </div>
@@ -226,7 +228,7 @@ export default function App() {
       <td className="p-3">{todo.completed ? "✅ True" : "❌ False"}</td>
       <td className="p-3">{todo.phoneNumber}</td>
       <td className="p-3 flex items-center justify-center gap-2">
-        <button className="px-2 py-1 bg-red-500 text-white rounded" onClick={() => dispatch(del(todo.id))}>Удалить</button>
+        <button className="px-2 py-1 bg-red-500 text-white rounded" onClick={() => dispatch(del(todo.id))}>delete</button>
         <button className="px-2 py-1 bg-yellow-500 text-white rounded" onClick={()=>Edit(todo)}>Edit</button>
         <button className="px-2 py-1 bg-blue-500 text-white rounded" onClick={()=>{dispatch(info(todo.id))}}>Info</button>
         <input type="checkbox" checked={todo.completed} onChange={()=>dispatch(cheked1(todo.id))} />

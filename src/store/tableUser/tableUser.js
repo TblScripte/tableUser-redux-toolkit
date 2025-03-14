@@ -89,10 +89,14 @@ export const TableTodo = createSlice({
 			}
 		},
 		info: (state, action) => {
-			const selectedItem = state.data.find(item => item.id === action.payload)
-			if (selectedItem) {
-				state.info = { ...selectedItem, status: true }
-			}
+			if (action.payload === false) {
+				state.info = {}; 
+			 } else {
+				const selectedItem = state.data.find(item => item.id === action.payload);
+				if (selectedItem) {
+				  state.info = { ...selectedItem, status: true };
+				}
+			 }
 		},
 	},
 })
